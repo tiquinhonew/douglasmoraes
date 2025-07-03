@@ -129,14 +129,6 @@ body.light-mode .resume-contact {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-body.light-mode .resume-contact-list .list-inline-item:not(:last-child) {
+body.light-mode .resume-contact-list .list-inline-item {
     border-right: none !important;
-}
-
-body.light-mode .profile-img-dark {
-    opacity: 0;
-}
-
-body.light-mode .profile-img-light {
-    opacity: 1;
 }
