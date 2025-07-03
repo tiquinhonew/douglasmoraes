@@ -110,6 +110,29 @@ small {
 	}
 }
 
+.theme-toggle-container {
+	position: absolute;
+	top: 1rem;
+	right: 1.5rem;
+	a {
+		width: 38px;
+		height: 38px;
+		padding-top: 6px;
+		font-size: 17px;
+		display: inline-block;
+		text-align: center;
+		@include border-radius(50%);
+		background: rgba(0, 0, 0, 0.1);
+		color: $theme-text-color-secondary;
+
+		&:hover, &:focus {
+			color: $theme-color-secondary;
+			background: rgba(0, 0, 0, 0.2);
+			@include transition(all 0.4s ease-in-out);
+		}
+	}
+}
+
 
 
 

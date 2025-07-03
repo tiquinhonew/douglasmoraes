@@ -14,6 +14,24 @@
 	margin-left: -80px;
 	top: -80px;
 	border: 8px solid $theme-bg-secondary;
+	transition: opacity 0.3s ease-in-out;
+}
+
+.profile-img-dark {
+	opacity: 1;
+}
+
+.profile-img-light {
+	opacity: 0;
+}
+
+.light-mode {
+	.profile-img-dark {
+		opacity: 0;
+	}
+	.profile-img-light {
+		opacity: 1;
+	}
 }
 
 

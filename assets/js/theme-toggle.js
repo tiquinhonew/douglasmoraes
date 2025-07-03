@@ -1,40 +1,38 @@
 document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('theme-toggle');
-    const themeIcon = document.getElementById('theme-icon');
-    const lightModeStylesheet = document.getElementById('theme-light-style'); // Get the new stylesheet link
+    const lightModeStylesheet = document.getElementById('theme-light-style');
 
-    // Function to apply theme
-    function applyTheme(theme) {
-        if (theme === 'light-mode') {
-            lightModeStylesheet.disabled = false; // Enable light mode stylesheet
-            themeIcon.classList.remove('bi-sun');
-            themeIcon.classList.add('bi-moon');
-            document.body.classList.remove('dark-mode'); // Ensure dark-mode class is removed
-            document.body.classList.add('light-mode'); // Add light-mode class
-        } else { // Default to dark-mode
-            lightModeStylesheet.disabled = true; // Disable light mode stylesheet
-            themeIcon.classList.remove('bi-moon');
-            themeIcon.classList.add('bi-sun');
-            document.body.classList.remove('light-mode'); // Ensure light-mode class is removed
-            document.body.classList.add('dark-mode'); // Add dark-mode class
+    function applyTheme(theme, isInitialLoad = false) {
+        const isLight = theme === 'light-mode';
+
+        // Update stylesheet and body class
+        lightModeStylesheet.disabled = !isLight;
+        document.body.classList.toggle('light-mode', isLight);
+        document.body.classList.toggle('dark-mode', !isLight);
+
+        // In dark mode, show the sun icon; in light mode, show the moon icon.
+        const iconClass = isLight ? 'fa-moon' : 'fa-sun';
+        
+        // Recreate the icon element to force FontAwesome to re-render the SVG.
+        // This is the most robust way to handle dynamic icon changes with the FA JS library.
+        if (themeToggle) {
+            themeToggle.innerHTML = `<i class="fas ${iconClass} fa-fw" id="theme-icon"></i>`;
         }
-        localStorage.setItem('theme', theme);
+
+        // Only save to localStorage on user action, not on initial load.
+        if (!isInitialLoad) {
+            localStorage.setItem('theme', theme);
+        }
     }
 
-    // Check for saved theme preference
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        applyTheme(savedTheme);
-    } else {
-        // Default to dark mode if no preference is saved
-        applyTheme('dark-mode');
-    }
+    // Load saved theme or default to dark mode
+    const savedTheme = localStorage.getItem('theme') || 'dark-mode';
+    applyTheme(savedTheme, true); // Pass true for initial load
 
-    themeToggle.addEventListener('click', () => {
-        if (lightModeStylesheet.disabled) { // Currently in dark mode, switch to light
-            applyTheme('light-mode');
-        } else { // Currently in light mode, switch to dark
-            applyTheme('dark-mode');
-        }
+    // Add the click event listener
+    themeToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        const newTheme = document.body.classList.contains('dark-mode') ? 'light-mode' : 'dark-mode';
+        applyTheme(newTheme);
     });
 });
