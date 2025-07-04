@@ -140,3 +140,17 @@ body.light-mode .profile-img-dark {
 body.light-mode .profile-img-light {
     opacity: 1;
 }
+
+body.light-mode .lang-switcher-container-custom {
+    border: 8px solid #ffffff; /* Lighter border for light theme */
+}
+
+body.light-mode .lang-switcher-btn {
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+body.light-mode .lang-switcher-btn::before {
+    background-color: #ffffff; /* Lighter background for light theme */
+    border: 1px solid #e0e0e0;
+}
