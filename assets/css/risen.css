@@ -16,9 +16,7 @@
     transition: opacity 0.3s ease-in-out; /* Adiciona transição para todas as propriedades */
 }
 
-.lang-switcher-container-custom:hover {
-    top: -20px;
-}
+
 
 .lang-switcher-btn {
     display: block;
