@@ -37,7 +37,8 @@
     display: block;
 }
 
-.lang-switcher-btn:hover {
+.lang-switcher-btn:hover,
+.lang-switcher-btn.active-lang {
     transform: translateY(-3px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }

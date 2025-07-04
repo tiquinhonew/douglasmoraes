@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const response = await fetch(`assets/lang/${lang}.json`);
             translations = await response.json();
-            applyTranslations();
             localStorage.setItem('lang', lang);
+            applyTranslations();
         } catch (error) {
             console.error('Error loading translations:', error);
         }
@@ -19,6 +19,17 @@ document.addEventListener('DOMContentLoaded', () => {
             const key = element.getAttribute('data-i18n');
             if (translations[key]) {
                 element.innerHTML = translations[key];
+            }
+        });
+        updateActiveClass(localStorage.getItem('lang') || defaultLang);
+    }
+
+    function updateActiveClass(currentLang) {
+        langButtons.forEach(button => {
+            if (button.getAttribute('data-lang') === currentLang) {
+                button.classList.add('active-lang');
+            } else {
+                button.classList.remove('active-lang');
             }
         });
     }
