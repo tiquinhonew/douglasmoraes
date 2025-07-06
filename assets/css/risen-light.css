@@ -161,3 +161,16 @@ body.light-mode .lang-switcher-btn::before {
     background-color: #ffffff; /* Lighter background for light theme */
     border: 1px solid #e0e0e0;
 }
+
+@media (max-width: 560px) {
+    body.light-mode
+    .lang-switcher-container-custom {
+      flex-direction: column;
+      top: 10px;
+      left: 98%;
+  }
+  body.light-mode
+  .lang-switcher-btn.active-lang {
+      transform: translateX(5px);
+  }
+}
