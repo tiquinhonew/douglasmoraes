@@ -16,6 +16,15 @@
     transition: opacity 0.3s ease-in-out; /* Adiciona transição para todas as propriedades */
 }
 
+@media (max-width: 560px) {
+    .lang-switcher-container-custom {
+        flex-direction: column;
+        left: 98%;
+        top: 0;
+        transform: translateX(-50%);
+    }
+}
+
 
 
 .lang-switcher-btn {
