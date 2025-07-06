@@ -12,6 +12,7 @@
     display: flex;
     gap: 5px;
     border: 8px solid rgb(30, 38, 55);
+    background-color: #1e2738; /* Cor de fundo mais escura */
     border-radius: 8px;
     transition: opacity 0.3s ease-in-out; /* Adiciona transição para todas as propriedades */
 }

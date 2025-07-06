@@ -143,6 +143,7 @@ body.light-mode .profile-img-light {
 
 body.light-mode .lang-switcher-container-custom {
     border: 8px solid #ffffff; /* Lighter border for light theme */
+    background-color: #ffffff; /* Lighter background for light theme */
 }
 
 body.light-mode .lang-switcher-btn {
